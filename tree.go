@@ -59,6 +59,57 @@ func sliceToBinaryTree(nums []interface{}) *TreeNode {
 	return root
 }
 
+// @author 文心一言
+// traverseBinaryTree traverses the binary tree and returns a slice of int or nil values
+func traverseBinaryTree(root *TreeNode) []interface{} {
+	if root == nil {
+		return nil
+	}
+
+	// Create a slice to store the values and nils
+	result := make([]interface{}, 0)
+
+	// Preorder traversal: root -> left -> right
+	result = append(result, root.Val)
+	result = append(result, traverseBinaryTree(root.Left)...)
+	result = append(result, traverseBinaryTree(root.Right)...)
+
+	// Check if the left child is nil and the right child is not nil
+	// If so, insert a nil value to represent the null left child
+	if root.Left == nil && root.Right != nil {
+		result = append(result, nil)
+	}
+
+	return result
+}
+
+// @author Copilot
+func createTree(arr []interface{}) *Node {
+	if len(arr) == 0 || arr[0] == nil {
+		return nil
+	}
+
+	root := &Node{Val: arr[0].(int)}
+	queue := []*Node{root}
+	i := 2
+
+	for len(queue) > 0 {
+		node := queue[0]
+		queue = queue[1:]
+
+		for i < len(arr) && arr[i] != nil {
+			child := &Node{Val: arr[i].(int)}
+			node.Children = append(node.Children, child)
+			queue = append(queue, child)
+			i++
+		}
+
+		i++
+	}
+
+	return root
+}
+
 // ========================
 // N叉树
 type Node struct {

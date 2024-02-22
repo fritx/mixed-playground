@@ -19,12 +19,12 @@ func TestPostorder(t *testing.T) {
 		input := sliceToIntIfFloat64(cases[2*i])
 		want := toIntSlice(cases[2*i+1])
 
-		testFn(t, postorderTraversal, input, want)
-		testFn(t, postorderTraversal_2, input, want)
+		testEachPostorder(t, postorderTraversal, input, want)
+		testEachPostorder(t, postorderTraversal_2, input, want)
 	}
 }
 
-func testFn(t *testing.T, fn func(*TreeNode) []int, input []interface{}, want []int) {
+func testEachPostorder(t *testing.T, fn func(*TreeNode) []int, input []interface{}, want []int) {
 	root := sliceToBinaryTree(input)
 	ans := fn(root)
 

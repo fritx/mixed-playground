@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 /**
  * Definition for a Node.
  * type Node struct {
@@ -54,12 +52,8 @@ func postorder(root *Node) (ans []int) {
 			return
 		}
 		for _, ch := range node.Children {
-			if ch != nil {
-				fmt.Println("ch.Val", ch.Val)
-			}
 			dfs(ch)
 		}
-		fmt.Println("node.Val", node.Val)
 		ans = append(ans, node.Val)
 	}
 	dfs(root)

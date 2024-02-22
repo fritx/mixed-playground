@@ -19,11 +19,16 @@ func TestPreorder(t *testing.T) {
 		input := sliceToIntIfFloat64(cases[2*i])
 		want := toIntSlice(cases[2*i+1])
 
-		root := sliceToBinaryTree(input)
-		ans := preorderTraversal(root)
+		testEachPreorder(t, preorderTraversal, input, want)
+		testEachPreorder(t, preorderTraversal_2, input, want)
+	}
+}
 
-		if !reflect.DeepEqual(ans, want) {
-			t.Errorf("Not equal. got: %v, want: %v\n", ans, want)
-		}
+func testEachPreorder(t *testing.T, fn func(*TreeNode) []int, input []interface{}, want []int) {
+	root := sliceToBinaryTree(input)
+	ans := preorderTraversal(root)
+
+	if !reflect.DeepEqual(ans, want) {
+		t.Errorf("Not equal. got: %v, want: %v\n", ans, want)
 	}
 }

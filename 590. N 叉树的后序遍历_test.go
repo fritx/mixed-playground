@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"reflect"
 	"testing"
 )
 
@@ -21,17 +20,20 @@ func TestPostorderNTree(t *testing.T) {
 		input := sliceToIntIfFloat64(cases[2*i])
 		want := toIntSlice(cases[2*i+1])
 
-		testNTreeFn(t, postorder, input, want)
-		// testNTreeFn(t, postorder_it, input, want)
+		testEachNTree(t, postorder, input, want)
+		testEachNTree(t, postorder_it, input, want)
 	}
 }
 
-func testNTreeFn(t *testing.T, fn func(*Node) []int, input []interface{}, want []int) {
+func testEachNTree(t *testing.T, fn func(*Node) []int, input []interface{}, want []int) {
 	// root := sliceToNTree(input)
-	root := convertSliceToNaryTree(input)
+	// root := convertSliceToNaryTree(input)
+	root := createTree(input)
 	ans := fn(root)
 
-	if !reflect.DeepEqual(ans, want) {
-		t.Errorf("Not equal. got: %v, want: %v\n", ans, want)
+	// 这里拓展reflect.DeepEqual 兼容边界情况下的空切片比较 使返回结果符合预期
+	// if !reflect.DeepEqual(ans, want) {
+	if !deepEqualExt(ans, want) {
+		t.Errorf("Not equal. got: %T-%v, want: %T-%v\n", ans, ans, want, want)
 	}
 }
