@@ -1,3 +1,6 @@
+from typing import Optional, List
+from tree import TreeNode
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -7,7 +10,6 @@
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         ans = []
-
         q = [root]
         nq = []
 

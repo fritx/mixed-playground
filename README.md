@@ -1,4 +1,13 @@
 ```sh
-# 运行go测试，确保缓存禁用
+# Go
 go clean -testcache && go test -v ./...
+
+# Python
+pytest -v -s
 ```
+
+Roadmap:
+- [ ] java
+- [ ] P2: python -m unittest discover -v
+- [x] pytest
+- [x] go test
