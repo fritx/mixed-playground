@@ -6,7 +6,7 @@ import (
 )
 
 func TestPostorderNTree(t *testing.T) {
-	cases := [][]interface{}{}
+	cases := [][]any{}
 	json.Unmarshal([]byte(`[
 		[1,null,3,2,4,null,5,6], [5,6,3,2,4,1],
 		[1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14],
@@ -25,7 +25,7 @@ func TestPostorderNTree(t *testing.T) {
 	}
 }
 
-func testEachNTree(t *testing.T, fn func(*Node) []int, input []interface{}, want []int) {
+func testEachNTree(t *testing.T, fn func(*Node) []int, input []any, want []int) {
 	// root := sliceToNTree(input)
 	// root := convertSliceToNaryTree(input)
 	root := createTree(input)

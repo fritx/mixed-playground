@@ -7,7 +7,7 @@ import (
 )
 
 func TestPreorder(t *testing.T) {
-	cases := [][]interface{}{}
+	cases := [][]any{}
 	json.Unmarshal([]byte(`[
 		[1,null,2,3], [1,2,3],
 		[], [],
@@ -24,7 +24,7 @@ func TestPreorder(t *testing.T) {
 	}
 }
 
-func testEachPreorder(t *testing.T, fn func(*TreeNode) []int, input []interface{}, want []int) {
+func testEachPreorder(t *testing.T, fn func(*TreeNode) []int, input []any, want []int) {
 	root := sliceToBinaryTree(input)
 	ans := preorderTraversal(root)
 

@@ -7,7 +7,7 @@ import (
 )
 
 func TestInorder(t *testing.T) {
-	cases := [][]interface{}{}
+	cases := [][]any{}
 	json.Unmarshal([]byte(`[
 		[1,null,2,3], [1,3,2],
 		[], [],

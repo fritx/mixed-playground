@@ -7,7 +7,7 @@ import (
 )
 
 func TestPostorder(t *testing.T) {
-	cases := [][]interface{}{}
+	cases := [][]any{}
 	json.Unmarshal([]byte(`[
 		[1,null,2,3], [3,2,1],
 		[], [],
@@ -24,7 +24,7 @@ func TestPostorder(t *testing.T) {
 	}
 }
 
-func testEachPostorder(t *testing.T, fn func(*TreeNode) []int, input []interface{}, want []int) {
+func testEachPostorder(t *testing.T, fn func(*TreeNode) []int, input []any, want []int) {
 	root := sliceToBinaryTree(input)
 	ans := fn(root)
 

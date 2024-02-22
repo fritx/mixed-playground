@@ -22,13 +22,13 @@ func deepEqualExt(x any, y any) bool {
 // 	}
 // 	return false
 // }
-// func isBothEmptySliceLike(x interface{}, y interface{}) bool {
+// func isBothEmptySliceLike(x any, y any) bool {
 // 	if reflect.TypeOf(x) == reflect.TypeOf(y) {
 // 		switch v := x.(type) {
-// 		case []interface{}:
+// 		case []any:
 // 			if len(v) == 0 {
 // 				switch v := y.(type) {
-// 				case []interface{}:
+// 				case []any:
 // 					if len(v) == 0 {
 // 						return true
 // 					}
@@ -39,13 +39,13 @@ func deepEqualExt(x any, y any) bool {
 // 	return false
 // }
 
-func isBothEmptySliceLike(x interface{}, y interface{}) bool {
+func isBothEmptySliceLike(x any, y any) bool {
 	if reflect.TypeOf(x) == reflect.TypeOf(y) {
 		return isEmptySlice(x) && isEmptySlice(y)
 	}
 	return false
 }
-func isEmptySlice(i interface{}) bool {
+func isEmptySlice(i any) bool {
 	v := reflect.ValueOf(i)
 	return v.Kind() == reflect.Slice && v.Len() == 0
 }

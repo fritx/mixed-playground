@@ -8,7 +8,7 @@ import (
 )
 
 func TestConstructFromPrePost(t *testing.T) {
-	cases := [][]interface{}{}
+	cases := [][]any{}
 	json.Unmarshal([]byte(`[
 		[1,2,4,5,3,6,7], [4,5,2,6,7,3,1], [1,2,3,4,5,6,7],
 		[1,2,5,3,6,4], [5,2,6,4,3,1], [1,2,3,5,null,6,4],
@@ -27,7 +27,7 @@ func TestConstructFromPrePost(t *testing.T) {
 	}
 }
 
-func testEachConstructFromPrePost(t *testing.T, fn func(preorder []int, postorder []int) *TreeNode, input [2][]int, want []interface{}) {
+func testEachConstructFromPrePost(t *testing.T, fn func(preorder []int, postorder []int) *TreeNode, input [2][]int, want []any) {
 	root := fn(input[0], input[1])
 	// ans := traverseBinaryTree(root)
 	// if !reflect.DeepEqual(ans, want) {

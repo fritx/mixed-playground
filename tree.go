@@ -9,7 +9,7 @@ type TreeNode struct {
 
 // createBinaryTreeFromSlice creates a binary tree from a slice of integers
 // Assuming the slice is completely filled with integers, starting with the root at index 0
-// func createBinaryTreeFromSlice(slice []interface{}) *TreeNode {
+// func createBinaryTreeFromSlice(slice []any) *TreeNode {
 // 	if len(slice) == 0 {
 // 		return nil
 // 	}
@@ -30,7 +30,7 @@ type TreeNode struct {
 
 // 需要适配LeetCode的二叉树数组表示形式！
 // @author Bingo
-func sliceToBinaryTree(nums []interface{}) *TreeNode {
+func sliceToBinaryTree(nums []any) *TreeNode {
 	if len(nums) == 0 || nums[0] == nil {
 		return nil
 	}
@@ -61,13 +61,13 @@ func sliceToBinaryTree(nums []interface{}) *TreeNode {
 
 // @author 文心一言
 // traverseBinaryTree traverses the binary tree and returns a slice of int or nil values
-func traverseBinaryTree(root *TreeNode) []interface{} {
+func traverseBinaryTree(root *TreeNode) []any {
 	if root == nil {
 		return nil
 	}
 
 	// Create a slice to store the values and nils
-	result := make([]interface{}, 0)
+	result := make([]any, 0)
 
 	// Preorder traversal: root -> left -> right
 	result = append(result, root.Val)
@@ -84,7 +84,7 @@ func traverseBinaryTree(root *TreeNode) []interface{} {
 }
 
 // @author Copilot
-func createTree(arr []interface{}) *Node {
+func createTree(arr []any) *Node {
 	if len(arr) == 0 || arr[0] == nil {
 		return nil
 	}
@@ -118,7 +118,7 @@ type Node struct {
 }
 
 // @author Bingo
-func sliceToNTree(nums []interface{}) *Node {
+func sliceToNTree(nums []any) *Node {
 	if len(nums) == 0 || nums[0] == nil {
 		return nil
 	}
@@ -147,7 +147,7 @@ func sliceToNTree(nums []interface{}) *Node {
 
 // @author 文心一言
 // convertSliceToNaryTree converts a slice of integers or nils to an N-ary tree
-func convertSliceToNaryTree(slice []interface{}) *Node {
+func convertSliceToNaryTree(slice []any) *Node {
 	if len(slice) == 0 {
 		return nil
 	}

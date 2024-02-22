@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func toIntSlice(slice []interface{}) []int {
+func toIntSlice(slice []any) []int {
 	res := make([]int, len(slice))
 	for i, value := range slice {
 		switch v := value.(type) {
@@ -15,8 +15,8 @@ func toIntSlice(slice []interface{}) []int {
 	return res
 }
 
-func sliceToIntIfFloat64(slice []interface{}) []interface{} {
-	res := make([]interface{}, len(slice))
+func sliceToIntIfFloat64(slice []any) []any {
+	res := make([]any, len(slice))
 	for i, v := range slice {
 		iv, _ := convertToFloat64ToInt(v)
 		res[i] = iv
@@ -24,7 +24,7 @@ func sliceToIntIfFloat64(slice []interface{}) []interface{} {
 	return res
 }
 
-func convertToFloat64ToInt(value interface{}) (interface{}, error) {
+func convertToFloat64ToInt(value any) (any, error) {
 	switch v := value.(type) {
 	case float64:
 		// 将float64转换为int，注意这可能会丢失精度或导致溢出
