@@ -9,13 +9,14 @@ import (
 
 func TestConstructFromPrePost(t *testing.T) {
 	cases := [][]any{}
-	json.Unmarshal([]byte(`[
+	if err := json.Unmarshal([]byte(`[
 		[1,2,4,5,3,6,7], [4,5,2,6,7,3,1], [1,2,3,4,5,6,7],
 		[1,2,5,3,6,4], [5,2,6,4,3,1], [1,2,3,5,null,6,4],
 		[], [], [],
 		[1], [1], [1]
-	]`), &cases)
-
+	]`), &cases); err != nil {
+		t.Fatalf("json.Unmarshal error: %v\n", err)
+	}
 	cnt := len(cases) / 3
 	for i := 0; i < cnt; i++ {
 		input := [2][]int{

@@ -13,7 +13,7 @@ func Test_kthLargestLevelSum(t *testing.T) {
 	// expected 'root' to have 2 <= size <= 100000 but got 0
 	// 1 <= k <= n
 	// expected 'k' to have value from 1 to xxx only
-	json.Unmarshal([]byte(`[
+	if err := json.Unmarshal([]byte(`[
 		[5,8,9,2,1,3,7,4,6], 2, 13,
 		[1,2,null,3], 1, 3,
 		[], 0, -1,
@@ -23,8 +23,9 @@ func Test_kthLargestLevelSum(t *testing.T) {
 		[1], 1, 1,
 		[1, 2], 1, 2,
 		[5,8,9,2,1,3,7], 4, -1
-	]`), &cases)
-
+	]`), &cases); err != nil {
+		t.Fatalf("json.Unmarshal error: %v\n", err)
+	}
 	cnt := len(cases) / 3
 	for i := 0; i < cnt; i++ {
 		x := sliceToIntIfFloat64(cases[3*i].([]any))

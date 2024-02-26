@@ -7,14 +7,15 @@ import (
 
 func TestPostorderNTree(t *testing.T) {
 	cases := [][]any{}
-	json.Unmarshal([]byte(`[
+	if err := json.Unmarshal([]byte(`[
 		[1,null,3,2,4,null,5,6], [5,6,3,2,4,1],
 		[1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14],
 			[2,6,14,11,7,3,12,8,4,13,9,10,5,1],
 		[], [],
 		[1], [1]
-	]`), &cases)
-
+	]`), &cases); err != nil {
+		t.Fatalf("json.Unmarshal error: %v\n", err)
+	}
 	cnt := len(cases) / 2
 	for i := 0; i < cnt; i++ {
 		input := sliceToIntIfFloat64(cases[2*i])

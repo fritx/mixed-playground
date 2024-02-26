@@ -8,12 +8,13 @@ import (
 
 func TestInorder(t *testing.T) {
 	cases := [][]any{}
-	json.Unmarshal([]byte(`[
+	if err := json.Unmarshal([]byte(`[
 		[1,null,2,3], [1,3,2],
 		[], [],
 		[1], [1]
-	]`), &cases)
-
+	]`), &cases); err != nil {
+		t.Fatalf("json.Unmarshal error: %v\n", err)
+	}
 	cnt := len(cases) / 2
 	for i := 0; i < cnt; i++ {
 		input := sliceToIntIfFloat64(cases[2*i])
