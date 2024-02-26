@@ -67,7 +67,60 @@ func lowestCommonAncestor_dfs(root, p, q *TreeNode) *TreeNode {
 	return nil
 }
 
-// 层序遍历
+// 递归 + map存储父节点
+func lowestCommonAncestor_map(root, p, q *TreeNode) *TreeNode {
+	parent := map[int]*TreeNode{}
+	visited := map[int]bool{}
+	// ** impr 1.1
+	// 题目OJ不会出错 但增强的测试用例 不存在的节点会出错
+	// exists := map[int]bool{}
+	if root == nil {
+		return nil
+	}
+
+	var dfs func(*TreeNode)
+	dfs = func(node *TreeNode) {
+		if node == nil {
+			return
+		}
+		// exists[node.Val] = true
+		if node.Left != nil {
+			parent[node.Left.Val] = node
+			dfs(node.Left)
+		}
+		if node.Right != nil {
+			parent[node.Right.Val] = node
+			dfs(node.Right)
+		}
+	}
+	dfs(root)
+
+	for p != nil {
+		// ** impr 1.2
+		// 题目OJ不会出错 但增强的测试用例 不存在的节点会出错
+		// if !exists[p.Val] {
+		if p.Val != root.Val && parent[p.Val] == nil {
+			return nil
+		}
+		visited[p.Val] = true
+		p = parent[p.Val]
+	}
+	for q != nil {
+		// ** impr 1.3
+		// 题目OJ不会出错 但增强的测试用例 不存在的节点会出错
+		// if !exists[q.Val] {
+		if q.Val != root.Val && parent[q.Val] == nil {
+			return nil
+		}
+		if visited[q.Val] {
+			return q
+		}
+		q = parent[q.Val]
+	}
+	return nil
+}
+
+// 层序遍历 + struct存储路径
 func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	x, y := findPath(root, p), findPath(root, q)
 	if len(y) < len(x) {
@@ -125,7 +178,7 @@ func findPath(root, p *TreeNode) []*TreeNode {
 			// ** bug 2
 			// nxq = append(nxq, &QueueItem{item.Node.Left, append(item.Path, item.Node.Left)})
 			// nxq = append(nxq, &QueueItem{item.Node.Right, append(item.Path, item.Node.Right)})
-			// ** bug 3.opt1
+			// ** bug 3.opt1 - 超出时间限制
 			// cPath := make([]*TreeNode, len(item.Path))
 			// copy(cPath, item.Path)
 			// nxq = append(nxq, &QueueItem{item.Node.Left, append(cPath, item.Node.Left)})
@@ -134,7 +187,11 @@ func findPath(root, p *TreeNode) []*TreeNode {
 			// x, y := append([]*TreeNode{}, item.Path...), append([]*TreeNode{}, item.Path...)
 			// nxq = append(nxq, &QueueItem{item.Node.Left, append(x, item.Node.Left)})
 			// nxq = append(nxq, &QueueItem{item.Node.Right, append(y, item.Node.Right)})
-			// ** bug 3.opt3
+			// ** bug 3.opt3 - requires Go >=1.22
+			// x, y := slices.Concat[[]*TreeNode]([]*TreeNode{}, item.Path), slices.Concat[[]*TreeNode]([]*TreeNode{}, item.Path)
+			// nxq = append(nxq, &QueueItem{item.Node.Left, append(x, item.Node.Left)})
+			// nxq = append(nxq, &QueueItem{item.Node.Right, append(y, item.Node.Right)})
+			// ** bug 3.opt4
 			path := item.Path[:len(item.Path):len(item.Path)]
 			nxq = append(nxq, &QueueItem{item.Node.Left, append(path, item.Node.Left)})
 			nxq = append(nxq, &QueueItem{item.Node.Right, append(path, item.Node.Right)})

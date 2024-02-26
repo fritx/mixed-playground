@@ -15,6 +15,7 @@ func Test_lowestCommonAncestor(t *testing.T) {
 		[3,5,1,6,2,0,8,null,null,7,4], 5, 1, 3,
 		[3,5,1,6,2,0,8,null,null,7,4], 5, 4, 5,
 		[3,5,1,6,2,0,8,null,null,7,4], 3, 5, 3,
+		[37,-34,-48,null,-100,-101,48,null,null,null,null,-54,null,-71,-22,null,null,null,8], -71, 8, -54,
 		[1,2], 1, 2, 1,
 		[1], 1, 1, 1,
 		[1], 1, 2, null,
@@ -37,7 +38,8 @@ func Test_lowestCommonAncestor(t *testing.T) {
 		if v, ok := cases[us*i+3].(float64); ok {
 			want = &TreeNode{Val: int(v)}
 		}
-		// testEach_lowestCommonAncestor(t, lowestCommonAncestor, data, p, q, want)
+		testEach_lowestCommonAncestor(t, lowestCommonAncestor, data, p, q, want)
+		testEach_lowestCommonAncestor(t, lowestCommonAncestor_map, data, p, q, want)
 		testEach_lowestCommonAncestor(t, lowestCommonAncestor_dfs, data, p, q, want)
 	}
 }
