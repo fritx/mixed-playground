@@ -7,7 +7,8 @@ pytest -v -s
 ```
 
 Roadmap:
-- [ ] java
+- [ ] benchmarks
+- [ ] java & junit
 - [ ] P2: python -m unittest discover -v
 - [x] pytest
 - [x] go test
