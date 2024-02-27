@@ -126,25 +126,35 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	if len(y) < len(x) {
 		x, y = y, x // 令 x小 y大
 	}
-	xl, yl := len(x), len(y)
+	// xl, yl := len(x), len(y)
 	// ** impr 3
 	// 题目OJ不会出错 但增强的测试用例 边界条件空x,y会出错
-	if xl == 0 {
-		return nil
-	}
-	for i := 0; i < yl-xl; i++ {
-		yn := y[yl-1-i]
-		if yn == x[xl-1] {
-			return yn
+	// if xl == 0 {
+	// 	return nil
+	// }
+	// for i := 0; i < yl-xl; i++ {
+	// 	yn := y[yl-1-i]
+	// 	if yn == x[xl-1] {
+	// 		return yn
+	// 	}
+	// }
+	// for i := 0; i < xl; i++ {
+	// 	a, b := x[xl-1-i], y[xl-1-i]
+	// 	if a == b {
+	// 		return a
+	// 	}
+	// }
+	// return nil
+	// ** impr 4. simpler
+	var ans *TreeNode
+	for i := 0; i < len(x); i++ {
+		if x[i] == y[i] {
+			ans = x[i]
+		} else {
+			break
 		}
 	}
-	for i := 0; i < xl; i++ {
-		a, b := x[xl-1-i], y[xl-1-i]
-		if a == b {
-			return a
-		}
-	}
-	return nil
+	return ans
 }
 
 type QueueItem struct {
