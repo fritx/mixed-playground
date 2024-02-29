@@ -4,3 +4,6 @@
 # Rust
 *_exe
 *_exe.*
+
+# Cargo
+/target
