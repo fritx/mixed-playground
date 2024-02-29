@@ -2,7 +2,7 @@ mod hello_module;
 use hello_module::hello;
 
 fn main() {
-    println!("{}", hello("Alice"));
+    println!("{}", hello("hello_main.rs"));
 }
 
 #[test]
