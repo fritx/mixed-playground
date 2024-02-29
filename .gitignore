@@ -1,1 +1,6 @@
+# Java
 *.class
+
+# Rust
+*_exe
+*_exe.*
