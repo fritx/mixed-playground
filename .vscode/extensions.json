@@ -6,5 +6,6 @@
         "redhat.java",
         "1yib.rust-bundle",
         "tamasfe.even-better-toml",
+        "stephanvs.dot",
     ]
 }

@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"playground/utils"
 	"reflect"
 	"testing"
 )
@@ -18,18 +19,19 @@ func TestPreorder(t *testing.T) {
 	cnt := len(cases) / 2
 	for i := 0; i < cnt; i++ {
 		input := sliceToIntIfFloat64(cases[2*i])
-		want := toIntSlice(cases[2*i+1])
+		want := utils.ToIntSlice(cases[2*i+1])
 
 		testEachPreorder(t, preorderTraversal, input, want)
 		testEachPreorder(t, preorderTraversal_2, input, want)
+		testEachPreorder(t, preorderTraversal_dfs, input, want)
 	}
 }
 
 func testEachPreorder(t *testing.T, fn func(*TreeNode) []int, input []any, want []int) {
 	root := sliceToBinaryTree(input)
-	ans := preorderTraversal(root)
+	ans := fn(root)
 
 	if !reflect.DeepEqual(ans, want) {
-		t.Errorf("Not equal. got: %v, want: %v\n", ans, want)
+		t.Errorf("Not equal. data=%v. got: %v, want: %v\n", input, ans, want)
 	}
 }

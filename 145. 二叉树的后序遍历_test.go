@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"playground/utils"
 	"reflect"
 	"testing"
 )
@@ -18,7 +19,7 @@ func TestPostorder(t *testing.T) {
 	cnt := len(cases) / 2
 	for i := 0; i < cnt; i++ {
 		input := sliceToIntIfFloat64(cases[2*i])
-		want := toIntSlice(cases[2*i+1])
+		want := utils.ToIntSlice(cases[2*i+1])
 
 		testEachPostorder(t, postorderTraversal, input, want)
 		testEachPostorder(t, postorderTraversal_2, input, want)

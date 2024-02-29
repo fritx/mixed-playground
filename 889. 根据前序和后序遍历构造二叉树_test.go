@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"playground/utils"
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
@@ -20,8 +21,8 @@ func TestConstructFromPrePost(t *testing.T) {
 	cnt := len(cases) / 3
 	for i := 0; i < cnt; i++ {
 		input := [2][]int{
-			toIntSlice(cases[3*i]),
-			toIntSlice(cases[3*i+1]),
+			utils.ToIntSlice(cases[3*i]),
+			utils.ToIntSlice(cases[3*i+1]),
 		}
 		want := sliceToIntIfFloat64(cases[3*i+2])
 		testEachConstructFromPrePost(t, constructFromPrePost, input, want)

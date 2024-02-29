@@ -2,19 +2,6 @@ package main
 
 import "fmt"
 
-func toIntSlice(slice []any) []int {
-	res := make([]int, len(slice))
-	for i, value := range slice {
-		switch v := value.(type) {
-		case int:
-			res[i] = v
-		case float64:
-			res[i] = int(v)
-		}
-	}
-	return res
-}
-
 func sliceToIntIfFloat64(slice []any) []any {
 	res := make([]any, len(slice))
 	for i, v := range slice {

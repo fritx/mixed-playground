@@ -19,6 +19,7 @@ Roadmap:
 - [x] rust & rustc --test
 - [ ] maven
 - [ ] java & junit
+- [x] mingrammer/diagrams
 - [ ] P2: python -m unittest discover -v
 - [x] pytest
 - [x] go test
