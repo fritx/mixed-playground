@@ -1,9 +1,10 @@
+#![allow(dead_code)]
 mod costs_of_paths_in_bt_2673;
 mod hello_module;
+use hello_module::hello;
 
 fn main() {
-    hello_module::hello("main.rs");
-    hello_module::hello_2("main.rs");
+    println!("{}", hello("main.rs"));
 }
 
 #[test]

@@ -1,10 +1,8 @@
 // 2673. 使二叉树所有路径值相等的最小代价
 // https://leetcode.cn/problems/make-costs-of-paths-equal-in-a-binary-tree/
 
-#[cfg(test)]
 struct Solution;
 
-#[cfg(test)]
 impl Solution {
     pub fn min_increments(n: i32, cost: Vec<i32>) -> i32 {
         let mut ans = 0;
