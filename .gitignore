@@ -1,3 +1,7 @@
+# Pytest
+__pycache__
+.pytest_cache
+
 # Java
 *.class
 
