@@ -1,0 +1,9 @@
+{
+    "editor.formatOnSave": false,
+    "[go]": {
+        "editor.formatOnSave": true,
+    },
+    "[rust]": {
+        "editor.formatOnSave": true,
+    }
+}
