@@ -15,6 +15,7 @@ cargo test
 # Java
 javac HelloWorld.java
 java HelloWorld
+mvn clean
 mvn install
 mvn test
 mvn compile
