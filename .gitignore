@@ -1,6 +1,9 @@
 # Java
 *.class
 
+# Maven
+/target
+
 # Rust
 *_exe
 *_exe.*
