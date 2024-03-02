@@ -2,6 +2,7 @@
     "recommendations": [
         "editorconfig.editorconfig",
         "ms-python.python",
+        // "ms-python.black-formatter",
         "golang.go",
         // "redhat.java",
         "vscjava.vscode-java-pack",

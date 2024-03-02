@@ -1,4 +1,4 @@
-package linked_list
+package linked_lists
 
 import (
 	"encoding/json"
