@@ -32,8 +32,9 @@ Roadmap:
 - [ ] P2: java tests by jar
 - [ ] gradle
 - [x] java & maven & junit
-- [x] mingrammer/diagrams
+- [x] diagrams
 - [ ] P2: python -m unittest discover -v
+- [x] import cjk filenames
 - [x] pytest
 - [x] go test
 

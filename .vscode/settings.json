@@ -1,9 +1,13 @@
 {
     "editor.formatOnSave": false,
+    "files.trimFinalNewlines": true,
     "[go]": {
         "editor.formatOnSave": true,
     },
     "[rust]": {
+        "editor.formatOnSave": true,
+    },
+    "[java]": {
         "editor.formatOnSave": true,
     },
     "java.configuration.updateBuildConfiguration": "automatic",
