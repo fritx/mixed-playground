@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"playground/utils"
 	"testing"
 )
 
@@ -28,7 +29,7 @@ func Test_kthLargestLevelSum(t *testing.T) {
 	}
 	cnt := len(cases) / 3
 	for i := 0; i < cnt; i++ {
-		x := sliceToIntIfFloat64(cases[3*i].([]any))
+		x := utils.SliceToIntIfFloat64(cases[3*i].([]any))
 		k := int(cases[3*i+1].(float64))
 		want := int64(cases[3*i+2].(float64))
 		testEach_kthLargestLevelSum(t, kthLargestLevelSum, x, k, want)

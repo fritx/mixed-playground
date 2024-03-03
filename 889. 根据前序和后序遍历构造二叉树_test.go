@@ -24,7 +24,7 @@ func TestConstructFromPrePost(t *testing.T) {
 			utils.ToIntSlice(cases[3*i]),
 			utils.ToIntSlice(cases[3*i+1]),
 		}
-		want := sliceToIntIfFloat64(cases[3*i+2])
+		want := utils.SliceToIntIfFloat64(cases[3*i+2])
 		testEachConstructFromPrePost(t, constructFromPrePost, input, want)
 	}
 }

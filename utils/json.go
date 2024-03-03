@@ -1,17 +1,32 @@
-package main
+package utils
 
 import "fmt"
 
-func sliceToIntIfFloat64(slice []any) []any {
+func SliceToIntIfFloat64(slice []any) []any {
 	res := make([]any, len(slice))
 	for i, v := range slice {
-		iv, _ := convertToFloat64ToInt(v)
+		iv, err := convertToIntIfFloat64(v)
+		if err != nil {
+			panic(err) // todo: don't panic
+		}
 		res[i] = iv
 	}
 	return res
 }
 
-func convertToFloat64ToInt(value any) (any, error) {
+// allowing more json value types
+func convertToIntIfFloat64(value any) (any, error) {
+	switch v := value.(type) {
+	case bool:
+		return v, nil
+	case string:
+		return v, nil
+	}
+	return convertToIntIfFloat64OnlyIntAndNil(value)
+}
+
+// allowing only null and numbers
+func convertToIntIfFloat64OnlyIntAndNil(value any) (any, error) {
 	switch v := value.(type) {
 	case float64:
 		// 将float64转换为int，注意这可能会丢失精度或导致溢出

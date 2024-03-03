@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"playground/utils"
 	"testing"
 )
 
@@ -27,7 +28,7 @@ func Test_lowestCommonAncestor(t *testing.T) {
 	us := 4
 	cnt := len(cases) / us
 	for i := 0; i < cnt; i++ {
-		data := sliceToIntIfFloat64(cases[us*i].([]any))
+		data := utils.SliceToIntIfFloat64(cases[us*i].([]any))
 		var p, q, want *TreeNode
 		if v, ok := cases[us*i+1].(float64); ok {
 			p = &TreeNode{Val: int(v)}

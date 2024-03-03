@@ -19,7 +19,7 @@ func TestPostorderNTree(t *testing.T) {
 	}
 	cnt := len(cases) / 2
 	for i := 0; i < cnt; i++ {
-		input := sliceToIntIfFloat64(cases[2*i])
+		input := utils.SliceToIntIfFloat64(cases[2*i])
 		want := utils.ToIntSlice(cases[2*i+1])
 
 		testEachNTree(t, postorder, input, want)

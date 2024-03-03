@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"playground/utils"
 	"testing"
 )
 
@@ -21,7 +22,7 @@ func Test_rangeSumBST(t *testing.T) {
 	us := 4
 	cnt := len(cases) / us
 	for i := 0; i < cnt; i++ {
-		data := sliceToIntIfFloat64(cases[us*i].([]any))
+		data := utils.SliceToIntIfFloat64(cases[us*i].([]any))
 		low := int(cases[us*i+1].(float64))
 		high := int(cases[us*i+2].(float64))
 		want := int(cases[us*i+3].(float64))
