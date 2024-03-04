@@ -9,6 +9,7 @@
   <url>http://maven.apache.org</url>
   <build>
     <plugins>
+      <!-- fix: target/playground-1.0-SNAPSHOT.jar中没有主清单属性 -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
@@ -20,6 +21,39 @@
               <mainClass>me.fritx.App</mainClass> <!-- 指定主类的完全限定名 -->
             </manifest>
           </archive>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <!-- fix: The Java feature 'Text Blocks' is only available with source level 15 and above -->
+          <source>15</source>
+          <target>15</target>
+        </configuration>
+      </plugin>
+
+      <!-- This extension prints a tree view for the unit tests on the console. This is related to JUnit5 tests. -->
+      <!-- https://maven.apache.org/surefire/maven-surefire-plugin/examples/junit-platform.html#external-extensions-for-the-plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
+        <dependencies>
+          <dependency>
+            <groupId>me.fabriciorby</groupId>
+            <artifactId>maven-surefire-junit5-tree-reporter</artifactId>
+            <version>0.1.0</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <reportFormat>plain</reportFormat>
+          <consoleOutputReporter>
+            <disable>true</disable>
+          </consoleOutputReporter>
+          <statelessTestsetInfoReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5StatelessTestsetInfoTreeReporter"/>
         </configuration>
       </plugin>
     </plugins>
@@ -56,5 +90,20 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency> -->
+
+    <!-- https://github.com/junit-pioneer/junit-pioneer/blob/275313479411ac51bfd3790be4254736518d8a7a/src/main/java/org/junitpioneer/jupiter/json/JsonSource.java#L22 -->
+    <dependency>
+      <groupId>org.junit-pioneer</groupId>
+      <artifactId>junit-pioneer</artifactId>
+      <version>2.2.0</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- fix: NoJsonParserConfigured No JSON parsing library found. Make sure a supported JSON parser (currently only Jackson) is on your test class/module path. For more information, see https://junit-pioneer.org/docs/json-argument-source/ -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.16.0</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 </project>
