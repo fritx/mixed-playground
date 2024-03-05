@@ -11,11 +11,14 @@
 package me.fritx.trees;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.lang.reflect.InvocationTargetException;
+
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junitpioneer.jupiter.json.JsonSource;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+// import com.fasterxml.jackson.databind.ObjectMapper;
 
 class CodecBT_297_Tests {
 
@@ -33,24 +36,35 @@ class CodecBT_297_Tests {
             ]
             """)
     // void test(int[] treeData) throws JsonProcessingException {
-    void test(Integer[] treeData) throws JsonProcessingException {
+    void test(Integer[] treeData)
+            throws JsonProcessingException, ClassNotFoundException, InstantiationException, IllegalAccessException,
+            IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
 
-        // 伪代码：我想 for循环遍历多个Codec类，比如 Codec1, Codec2 这里咋写？
-        CodecBT_297 ser = new CodecBT_297();
-        CodecBT_297 deser = new CodecBT_297();
-        TreeNode root = TreeUtils.binaryTreeFromArray(treeData);
-        TreeNode ans = deser.deserialize(ser.serialize(root));
+        String[] classNames = {
+                CodecBT_297_1.class.getName(),
+                CodecBT_297_2.class.getName(),
+        };
+        for (String className : classNames) {
+            Class<?> codecClass = Class.forName(className);
+            // fix: Type mismatch: cannot convert from capture#2-of ? to CodecBT_297
+            CodecBT_297 ser = (CodecBT_297) codecClass.getDeclaredConstructor().newInstance();
+            CodecBT_297 deser = (CodecBT_297) codecClass.getDeclaredConstructor().newInstance();
 
-        // // 使用 Arrays.stream() 和 map() 将 int[] 转换为 String[]
-        // String[] numberStrings = Arrays.stream(treeData)
-        // .mapToObj(String::valueOf)
-        // .toArray(String[]::new);
-        // // 使用 String.join() 将字符串数组用逗号连接
-        // String treeStr = String.join(",", numberStrings);
-        ObjectMapper mapper = new ObjectMapper();
-        String treeStr = mapper.writeValueAsString(treeData);
+            TreeNode root = TreeUtils.binaryTreeFromArray(treeData);
+            TreeNode ans = deser.deserialize(ser.serialize(root));
 
-        assertTrue(TreeUtils.isSameTree(ans, root),
-                () -> treeStr + " should pass");
+            // // 使用 Arrays.stream() 和 map() 将 int[] 转换为 String[]
+            // String[] numberStrings = Arrays.stream(treeData)
+            // .mapToObj(String::valueOf)
+            // .toArray(String[]::new);
+            // // 使用 String.join() 将字符串数组用逗号连接
+            // String treeStr = String.join(",", numberStrings);
+            // ObjectMapper mapper = new ObjectMapper();
+            // String treeStr = mapper.writeValueAsString(treeData);
+            // assertTrue(TreeUtils.isSameTree(ans, root),
+            // () -> treeStr + " should pass");
+            assertTrue(TreeUtils.isSameTree(ans, root));
+        }
+
     }
 }

@@ -1,7 +1,7 @@
 package me.fritx.trees;
 
 // 方法二：括号表示编码 + 递归下降解码
-public class CodecBT_297_2 {
+public class CodecBT_297_2 implements CodecBT_297 {
     public String serialize(TreeNode root) {
         if (root == null) {
             return "X";
