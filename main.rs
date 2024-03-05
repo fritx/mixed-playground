@@ -1,6 +1,7 @@
 #![allow(dead_code)]
 mod costs_of_paths_in_bt_2673;
 mod dp;
+mod graphs;
 mod hello_module;
 use hello_module::hello;
 

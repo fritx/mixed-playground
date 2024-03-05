@@ -10,7 +10,7 @@ rustc hello_world.rs -o hello_world_exe
 ./hello_world_exe
 rustc --test hello_world.rs -o hello_world_test_exe
 ./hello_world_test_exe
-cargo test
+cargo test -- --nocapture
 
 # Java
 javac HelloWorld.java
