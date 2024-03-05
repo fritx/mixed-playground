@@ -47,10 +47,10 @@ func testEach_bst_lowestCommonAncestor(t *testing.T, fn func(root, p, q *TreeNod
 	ans := fn(root, p, q)
 
 	if ans == nil || want == nil {
-		AssertEqual[*TreeNode](t, ans, want,
+		utils.AssertEqual(t, ans, want,
 			fmt.Sprintf("Not equal. data=%v, p=%v, q=%v", data, p, q))
 	} else {
-		AssertEqual[int](t, ans.Val, want.Val,
+		utils.AssertEqual(t, ans.Val, want.Val,
 			fmt.Sprintf("Not equal. data=%v, p=%v, q=%v", data, p, q))
 	}
 }

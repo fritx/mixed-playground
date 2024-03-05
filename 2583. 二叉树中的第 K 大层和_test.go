@@ -39,5 +39,5 @@ func Test_kthLargestLevelSum(t *testing.T) {
 func testEach_kthLargestLevelSum(t *testing.T, fn func(*TreeNode, int) int64, x []any, k int, want int64) {
 	root := sliceToBinaryTree(x)
 	ans := fn(root, k)
-	AssertEqual(t, ans, want, fmt.Sprintf("x=%v, k=%v", x, k))
+	utils.AssertEqual(t, ans, want, fmt.Sprintf("x=%v, k=%v", x, k))
 }

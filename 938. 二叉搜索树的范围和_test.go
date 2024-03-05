@@ -34,5 +34,5 @@ func Test_rangeSumBST(t *testing.T) {
 func testEach_rangeSumBST(t *testing.T, fn func(root *TreeNode, low int, high int) int, data []any, low, high, want int) {
 	root := sliceToBinaryTree(data)
 	ans := fn(root, low, high)
-	AssertEqual(t, ans, want, fmt.Sprintf("data=%v, low=%v, high=%v", data, low, high))
+	utils.AssertEqual(t, ans, want, fmt.Sprintf("data=%v, low=%v, high=%v", data, low, high))
 }
