@@ -1,6 +1,9 @@
 package main
 
-import "container/heap"
+import (
+	"container/heap"
+	"playground/data_structures"
+)
 
 /**
  * Definition for a binary tree node.
@@ -12,7 +15,7 @@ import "container/heap"
  */
 func kthLargestLevelSum(root *TreeNode, k int) int64 {
 	queue := []*TreeNode{root}
-	h := &MaxHeap[int64]{}
+	h := &data_structures.MaxHeap[int64]{}
 	levels := 0
 	for len(queue) > 0 {
 		// ** bug 6.1

@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"slices"
+	// "slices"
 )
 
 func main() {
@@ -94,20 +94,20 @@ func main() {
 		fmt.Println("")
 	}
 	// requires Go >=1.22
-	fmt.Println("-- fix via slices.Concat()")
-	{
-		a := []int{}
-		for i := 0; i < 5; i++ {
-			fmt.Printf("a=%v\n", a)
-			ab := slices.Concat[[]int]([]int{}, a)
-			b := append(ab, 11)
-			ac := slices.Concat[[]int]([]int{}, a)
-			c := append(ac, 22)
-			fmt.Printf("b=%v, c=%v\n", b, c)
-			a = append(a, i)
-		}
-		fmt.Println("")
-	}
+	// fmt.Println("-- fix via slices.Concat()")
+	// {
+	// 	a := []int{}
+	// 	for i := 0; i < 5; i++ {
+	// 		fmt.Printf("a=%v\n", a)
+	// 		ab := slices.Concat[[]int]([]int{}, a)
+	// 		b := append(ab, 11)
+	// 		ac := slices.Concat[[]int]([]int{}, a)
+	// 		c := append(ac, 22)
+	// 		fmt.Printf("b=%v, c=%v\n", b, c)
+	// 		a = append(a, i)
+	// 	}
+	// 	fmt.Println("")
+	// }
 	fmt.Println("-- fix via slicing with specifying cap")
 	{
 		a := []int{}
