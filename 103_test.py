@@ -6,7 +6,7 @@ spec = importlib.util.spec_from_file_location("x", "103. 二叉树的锯齿形�
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 
-def test_zigzagLevelOrder():
+def test():
     cases = json.loads("""[
         [3,9,20,null,null,15,7], [[3],[20,9],[15,7]],
         [1], [[1]],

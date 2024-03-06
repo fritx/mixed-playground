@@ -8,7 +8,7 @@ spec = importlib.util.spec_from_file_location("x", src_file)
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 
-def test_queueByStacks():
+def test():
     cases = json.loads("""[
 ["MyQueue","push","push","peek","pop","empty"], [[],[1],[2],[],[],[]], [null,null,null,1,1,false],
 ["MyQueue","push","push","push","push","pop","push","pop","pop","pop","pop"],

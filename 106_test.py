@@ -6,7 +6,7 @@ spec = importlib.util.spec_from_file_location("x", "106. 从中序与后序遍�
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 
-def test_buildTree():
+def test():
     cases = json.loads("""[
         [9,3,15,20,7], [9,15,7,20,3], [3,9,20,null,null,15,7],
         [-1], [-1], [-1],

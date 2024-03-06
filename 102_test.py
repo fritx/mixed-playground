@@ -6,7 +6,7 @@ spec = importlib.util.spec_from_file_location("x", "102. 二叉树的层序遍�
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 
-def test_levelOrder():
+def test():
     cases = json.loads("""[
         [3,9,20,null,null,15,7], [[3],[9,20],[15,7]],
         [1], [[1]],

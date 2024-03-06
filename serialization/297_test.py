@@ -9,7 +9,7 @@ spec = importlib.util.spec_from_file_location("x", src_file)
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 
-def test_codec():
+def test():
     cases = json.loads(
         """[
         [1,2,3,null,null,4,5], [1,2,3,null,null,4,5],
