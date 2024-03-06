@@ -1,14 +1,7 @@
-import importlib.util
-import json, os
+import json
+from utils.exec_module import exec_module
 
-# fix: FileNotFoundError: [Errno 2] No such file or directory: 'xxx/mixed-playground/xxx.py'
-current_file = os.path.abspath(__file__)
-current_dir = os.path.dirname(current_file)
-src_file = os.path.join(current_dir, "2917. 找出数组中的 K-or 值.py")
-
-spec = importlib.util.spec_from_file_location("x", src_file)
-module = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(module)
+module = exec_module("2917. 找出数组中的 K-or 值.py")
 
 def test():
     cases = json.loads("""[

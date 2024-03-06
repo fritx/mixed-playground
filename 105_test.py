@@ -1,10 +1,8 @@
-from tree import level_order_traversal
-import importlib.util
 import json
+from tree import level_order_traversal
+from utils.exec_module import exec_module
 
-spec = importlib.util.spec_from_file_location("x", "105. 从前序与中序遍历序列构造二叉树.py")
-module = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(module)
+module = exec_module("105. 从前序与中序遍历序列构造二叉树.py")
 
 def test():
     cases = json.loads("""[

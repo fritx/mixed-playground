@@ -1,12 +1,7 @@
-import importlib.util
-import json, os
+import json
+from utils.exec_module import exec_module
 
-current_file = os.path.abspath(__file__)
-current_dir = os.path.dirname(current_file)
-src_file = os.path.join(current_dir, "232. 用栈实现队列.py")
-spec = importlib.util.spec_from_file_location("x", src_file)
-module = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(module)
+module = exec_module("232. 用栈实现队列.py")
 
 def test():
     cases = json.loads("""[

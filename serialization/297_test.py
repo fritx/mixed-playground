@@ -1,13 +1,8 @@
+import json
 from tree import slice_to_binary_tree, is_same_tree
-import importlib.util
-import json, os
+from utils.exec_module import exec_module
 
-current_file = os.path.abspath(__file__)
-current_dir = os.path.dirname(current_file)
-src_file = os.path.join(current_dir, "297. 二叉树的序列化与反序列化.py")
-spec = importlib.util.spec_from_file_location("x", src_file)
-module = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(module)
+module = exec_module("297. 二叉树的序列化与反序列化.py")
 
 def test():
     cases = json.loads(

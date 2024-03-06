@@ -1,10 +1,8 @@
-from tree import slice_to_binary_tree
-import importlib.util
 import json
+from tree import slice_to_binary_tree
+from utils.exec_module import exec_module
 
-spec = importlib.util.spec_from_file_location("x", "102. 二叉树的层序遍历.py")
-module = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(module)
+module = exec_module("102. 二叉树的层序遍历.py")
 
 def test():
     cases = json.loads("""[
@@ -21,4 +19,3 @@ def test():
         root = slice_to_binary_tree(data)
         ans = solution.levelOrder(root)
         assert ans == want
-
