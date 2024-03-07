@@ -1,0 +1,47 @@
+<!doctype html>
+<meta charset="utf8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="flexbox.css">
+
+<main class="bks-container">
+  <script type="x-bks">
+    title: 个人规划
+    ---
+    - 收入
+        - 简历求职
+        - 远程机会
+        - 技术咨询
+        - 产品创业
+        - 自媒体
+    - 能力
+        - 架构能力
+        - 项目经验
+        - 底层基础
+    - 背书
+        - 企业官网
+        - 作品集
+        - 开源贡献
+        - 专栏创作
+  </script>
+</main>
+
+<script>
+  let cs = document.querySelectorAll('.bks-container')
+  cs.forEach(container => {
+    let script = container.querySelector('script[type=x-bks]')
+    let txt = script.textContent
+    let meta = Object.create(null) // Record<string, string>
+    let content = ''
+    if (txt.includes('---')) {
+      let metaStr = ''
+      ;[metaStr, content] = txt.split('---')
+      content = content.trim()
+      metaStr.trim().split(/\s*\n+\s*/).forEach(line => {
+        let idx = line.indexOf(':')
+        let [key, value] = [line.slice(0, idx), line.slice(idx+1)]
+        meta[key.trim()] = value.trim()
+      })
+    }
+    console.log({ meta, content })
+  })
+</script>

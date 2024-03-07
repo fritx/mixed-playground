@@ -30,11 +30,13 @@ Roadmap:
 - [x] cargo test
 - [x] rust & rustc --test
 - [ ] P2: java tests by jar
+- [ ] bigdata & spark & hadoop
 - [ ] gradle
 - [x] java & maven & junit
+- [ ] diagrams_bks
 - [x] diagrams
 - [ ] P2: python -m unittest discover -v
-- [x] import cjk filenames
+- [x] import cjk filenames & ~from sub-directories
 - [x] pytest
 - [x] go test
 

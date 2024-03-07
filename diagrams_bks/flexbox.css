@@ -1,0 +1,60 @@
+.bks-container div {
+    display: flex;
+    flex-direction: column;
+    padding: max(.5em, 1%);
+    /* margin: max(.5em, 1%); */
+    /* border-radius: 5%; */
+    background-color: rgba(0, 0, 0, .05);
+}
+
+.bks-container .l2r {
+    flex-direction: row;
+}
+.bks-container .l2r>div {
+    flex: 1;
+}
+.bks-container .l2r>.flex2 {
+    flex: 2;
+}
+.bks-container .l2r>.flex3 {
+    flex: 3;
+}
+
+.bks-container div + div {
+    margin-top: max(.5em, 1%);
+}
+.bks-container .l2r>div+div {
+    margin-top: 0;
+    margin-left: max(.5em, 1%);
+}
+
+.bks-container .no-box {
+    /* margin: 0; */
+    padding: 0;
+    background-color: transparent;
+}
+.bks-container .no-bg {
+    background-color: transparent;
+}
+
+.bks-start {
+    background-color: rgba(0, 0, 0, .02);
+}
+.bks-start>div:nth-child(1) {
+    background-color: rgba(127, 0, 127, .05);
+}
+.bks-start>div:nth-child(2) {
+    background-color: rgba(127, 127, 0, .05);
+}
+.bks-start>div:nth-child(3) {
+    background-color: rgba(0, 127, 127, .05);
+}
+.bks-start>div:nth-child(4) {
+    background-color: rgba(0, 0, 127, .05);
+}
+.bks-start>div:nth-child(5) {
+    background-color: rgba(0, 127, 0, .05);
+}
+.bks-start>div:nth-child(6) {
+    background-color: rgba(127, 0, 0, .05);
+}
