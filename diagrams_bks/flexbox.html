@@ -35,13 +35,56 @@
     if (txt.includes('---')) {
       let metaStr = ''
       ;[metaStr, content] = txt.split('---')
-      content = content.trim()
+      // content = content.trim()
       metaStr.trim().split(/\s*\n+\s*/).forEach(line => {
         let idx = line.indexOf(':')
         let [key, value] = [line.slice(0, idx), line.slice(idx+1)]
         meta[key.trim()] = value.trim()
       })
     }
-    console.log({ meta, content })
+    let tree = parse(content)
+    console.log({ meta, content, tree })
+    let html = `
+<div class="bks-start no-bg l2r">${render(tree)}</div>
+    `.trim()
+    if (meta.title) {
+      html = `<div>${meta.title}${html}</div>`
+    }
+    cs.innerHTML = html
   })
+  let render = root => {
+    return root.map(item => {
+      return `
+<div>${item.title || ''}
+  ${item.children ? `<div class="no-bg">${item.children.map(render)}</div>` : ''}
+</div>
+      `.trim()
+    }).join('')
+  }
+  let parse = md => {
+    let root = { indent: null, children: [] }
+    let stack = [root]
+    let curr = root
+    md.split(/\s*\n+/).forEach(line => {
+      line = line.replace(/\s+$/, '')
+      if (!line) return
+      let indent = line.match(/^\s*/)[0].length
+      if (root.indent == null) root.indent = indent
+      let title = line.replace(/^-\s*/, '')
+      if (indent > curr.indent) {
+        //
+      } else if (indent < curr.indent) {
+        curr = { title, children: [] }
+        stack.push(curr)
+        let backTo
+        while (stack[stack.length-1].indent > indent) {
+          backTo = stack.pop()
+        }
+        backTo.children.push(curr)
+      } else {
+        //
+      }
+    })
+    return root
+  }
 </script>
