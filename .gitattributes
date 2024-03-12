@@ -1,3 +1,9 @@
 # Ignore `Jupyter Notebook`
 # https://github.com/search?q=%22*.ipynb+linguist-documentation%22&ref=opensearch&type=code
 *.ipynb linguist-documentation
+
+# Frontend
+*.html linguist-documentation
+*.css linguist-documentation
+*.js linguist-documentation
+*.ts linguist-documentation

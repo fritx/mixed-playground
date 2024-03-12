@@ -1,6 +1,7 @@
 ```sh
 # Go
-go clean -testcache && go test -v ./...
+go clean -testcache
+CGO_ENABLED=0 go test -v ./...
 
 # Python
 pytest -v -s
@@ -32,6 +33,7 @@ Roadmap:
 - [ ] P2: java tests by jar
 - [ ] bigdata & spark & hadoop
 - [ ] gradle
+- [ ] maven plain directory
 - [x] java & maven & junit
 - [ ] diagrams_bks
 - [x] diagrams
