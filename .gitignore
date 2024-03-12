@@ -14,3 +14,17 @@ __pycache__
 
 # Cargo
 /target
+
+# Hardhat
+# https://github.com/NomicFoundation/hardhat/blob/main/packages/hardhat-core/recommended-gitignore.txt
+node_modules
+.env
+# Hardhat files
+/cache
+/artifacts
+# TypeChain files
+/typechain
+/typechain-types
+# solidity-coverage files
+/coverage
+/coverage.json

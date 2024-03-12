@@ -23,10 +23,16 @@ mvn compile
 java -cp target/classes me.fritx.App
 mvn package
 java -jar target/playground-1.0-SNAPSHOT.jar
+
+# Solidity
+npm install  # or pnpm install
+npx hardhat test
 ```
 
 Roadmap:
 - [ ] benchmarks
+- [ ] hardhat plain directory
+- [x] solidity & hardhat
 - [ ] c & c++
 - [x] cargo test
 - [x] rust & rustc --test

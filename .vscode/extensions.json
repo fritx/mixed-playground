@@ -9,5 +9,6 @@
         "1yib.rust-bundle",
         "tamasfe.even-better-toml",
         "stephanvs.dot",
+        "maratib.hardhat-developer-pack",
     ]
 }
