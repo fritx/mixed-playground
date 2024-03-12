@@ -10,5 +10,11 @@
     "[java]": {
         "editor.formatOnSave": true,
     },
+    "[solidity]": {
+        "editor.formatOnSave": true,
+    },
+    "[typescript]": {
+        "editor.formatOnSave": true,
+    },
     "java.configuration.updateBuildConfiguration": "automatic",
 }

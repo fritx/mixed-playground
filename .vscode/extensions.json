@@ -10,5 +10,6 @@
         "tamasfe.even-better-toml",
         "stephanvs.dot",
         "maratib.hardhat-developer-pack",
+        "esbenp.prettier-vscode",
     ]
 }
