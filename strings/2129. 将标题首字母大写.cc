@@ -1,3 +1,5 @@
+//go:build ignore
+
 class Solution {
 public:
     string capitalizeTitle(string title) {

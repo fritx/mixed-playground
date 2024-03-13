@@ -1,7 +1,7 @@
 ```sh
 # Go
 go clean -testcache
-CGO_ENABLED=0 go test -v ./...
+go test -v ./...
 
 # Python
 pytest -v -s
@@ -31,15 +31,16 @@ npx hardhat test
 
 Roadmap:
 - [ ] benchmarks
+- [ ] P2: bigdata & spark & hadoop
 - [ ] hardhat plain directory
 - [x] solidity & hardhat
-- [ ] c & c++
+- [ ] c & c++ testing
+- [x] mixed c & c++ with go
 - [x] cargo test
 - [x] rust & rustc --test
 - [ ] P2: java tests by jar
-- [ ] bigdata & spark & hadoop
 - [ ] gradle
-- [ ] maven plain directory
+- [ ] P2: maven plain directory
 - [x] java & maven & junit
 - [ ] diagrams_bks
 - [x] diagrams

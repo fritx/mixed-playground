@@ -1,3 +1,5 @@
+//go:build ignore
+
 char* capitalizeTitle(char* title) {
     int n = strlen(title);
     int l = 0, r = 0;   // 单词左右边界（左闭右开）
