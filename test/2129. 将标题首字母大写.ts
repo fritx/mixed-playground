@@ -4,7 +4,7 @@ import hre from "hardhat";
 import { GetContractReturnType } from "@nomicfoundation/hardhat-viem/types";
 import { expect } from "chai";
 
-describe("CapitalizeTheTitle_2129", () => {
+describe("2129. 将标题首字母大写", () => {
   let solution: GetContractReturnType<
     [
       {
