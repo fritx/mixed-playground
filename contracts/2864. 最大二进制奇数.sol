@@ -1,7 +1,7 @@
+// Assisted by 文心一言
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-// Asisted by 文心一言
 contract MaximumOddBinaryNumber_2864 {
     function maximumOddBinaryNumber(
         string memory s

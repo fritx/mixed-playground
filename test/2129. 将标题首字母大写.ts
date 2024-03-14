@@ -57,7 +57,7 @@ describe("2129. 将标题首字母大写", () => {
     let input = cases[i * us];
     let want = cases[i * us + 1];
     it(JSON.stringify(input), async () => {
-      const ans = await solution.read.capitalizeTitle([input]);
+      let ans = await solution.read.capitalizeTitle([input]);
       expect(ans).to.equal(want);
     });
   }

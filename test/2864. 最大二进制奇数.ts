@@ -40,7 +40,7 @@ describe("2864. 最大二进制奇数", () => {
     let input = cases[i * us];
     let want = cases[i * us + 1];
     it(JSON.stringify(input), async () => {
-      const ans = await solution.read.maximumOddBinaryNumber([input]);
+      let ans = await solution.read.maximumOddBinaryNumber([input]);
       expect(ans).to.equal(want);
     });
   }
