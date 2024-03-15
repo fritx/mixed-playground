@@ -21,7 +21,10 @@ rustc hello_world.rs -o hello_world_exe
 ./hello_world_exe
 rustc --test hello_world.rs -o hello_world_test_exe
 ./hello_world_test_exe
+cargo build
+cargo build --release
 cargo test -- --nocapture
+cargo test --release -- --nocapture
 
 # Java
 javac HelloWorld.java
@@ -57,6 +60,7 @@ Roadmap:
 - [x] go test
 
 Refs:
+- https://doc.rust-lang.org/rustc/instrument-coverage.html
 - https://pytest-cov.readthedocs.io/en/latest/reporting.html
 - https://github.com/golang/vscode-go/blob/master/docs/features.md#code-coverage
 - https://brantou.github.io/2017/05/24/go-cover-story/

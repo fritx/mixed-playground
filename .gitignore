@@ -11,14 +11,23 @@ py_coverage
 *.class
 
 # Maven
-/target
+/target/classes
+/target/test-classes
+/target/generated-sources
+/target/generated-test-sources
+/target/maven-status
+/target/surefire-reports
 
 # Rust
 *_exe
 *_exe.*
 
 # Cargo
-/target
+/target/debug
+/target/release
+/target/.rustc_info.json
+*.profraw
+*.profdata
 
 # Hardhat
 # https://github.com/NomicFoundation/hardhat/blob/main/packages/hardhat-core/recommended-gitignore.txt
