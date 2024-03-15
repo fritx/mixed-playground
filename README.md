@@ -42,7 +42,7 @@ Roadmap:
 - [ ] diagrams_bks
 - [x] diagrams
 - [ ] P2: python -m unittest discover -v
-- [x] import cjk filenames & ~from sub-directories
+- [x] hacking cjk filenames & sub-directories & cwd
 - [x] pytest
 - [x] go test
 

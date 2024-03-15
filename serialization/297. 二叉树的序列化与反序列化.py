@@ -1,7 +1,7 @@
 # 297. 二叉树的序列化与反序列化
 # https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/
 
-from tree import TreeNode
+from trees.tree import TreeNode
 
 # Definition for a binary tree node.
 # class TreeNode(object):

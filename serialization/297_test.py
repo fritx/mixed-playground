@@ -1,5 +1,5 @@
 import json
-from tree import slice_to_binary_tree, is_same_tree
+from trees.tree import slice_to_binary_tree, is_same_tree
 from utils.exec_module import exec_module
 
 module = exec_module("297. 二叉树的序列化与反序列化.py")
