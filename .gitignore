@@ -1,6 +1,10 @@
 # Pytest
 __pycache__
 .pytest_cache
+.coverage
+
+# Go coverage & profiling
+*.out
 
 # Java
 *.class

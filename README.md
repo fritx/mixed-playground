@@ -2,6 +2,11 @@
 # Go
 go clean -testcache
 go test -v ./...
+# w/ coverage
+go test -cover ./...
+go test -coverprofile=go_coverage.out ./...
+go tool cover -func=go_coverage.out
+go tool cover -html=go_coverage.out  # serving html
 
 # Python
 pytest -v -s
@@ -30,7 +35,7 @@ npx hardhat test
 ```
 
 Roadmap:
-- [ ] benchmarks
+- [ ] coverage & benchmarks
 - [ ] bigdata & spark & hadoop
 - [x] solidity & hardhat
 - [ ] c & c++ testing
@@ -47,4 +52,6 @@ Roadmap:
 - [x] go test
 
 Refs:
+- https://github.com/golang/vscode-go/blob/master/docs/features.md#code-coverage
+- https://brantou.github.io/2017/05/24/go-cover-story/
 - https://junit.org/junit5/docs/current/user-guide/#running-tests-build
