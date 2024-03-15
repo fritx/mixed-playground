@@ -9,7 +9,7 @@ pragma solidity ^0.8.0;
 
 // Solidity console.log
 // https://hardhat.org/tutorial/debugging-with-hardhat-network#solidity--console.log
-import "hardhat/console.sol";
+// import "hardhat/console.sol";
 
 contract MaxArrayValue_2789 {
     uint32 constant MAX_SIZE = 1e6;

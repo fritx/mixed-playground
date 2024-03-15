@@ -43,9 +43,14 @@ describe("2789. 合并后数组中的最大元素", () => {
   let cases = [[2, 3, 7, 9, 3], 21, [5, 3, 3], 11, [91, 50], 91, [3], 3, [], 0];
   let us = 2;
   let cnt = cases.length / us;
+
   for (let i = 0; i < cnt; ++i) {
     let input = cases[i * us] as number[];
+
+    // BigInt required for `uint64`
+    // fix: expected 21n to equal 21
     let want = BigInt(cases[i * us + 1] as number);
+
     it(JSON.stringify(input), async () => {
       await solution.write.setArrayValues([input]);
       let ans = await solution.read.getResult();

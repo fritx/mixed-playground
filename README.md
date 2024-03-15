@@ -31,16 +31,13 @@ npx hardhat test
 
 Roadmap:
 - [ ] benchmarks
-- [ ] P2: bigdata & spark & hadoop
-- [ ] hardhat plain directory
+- [ ] bigdata & spark & hadoop
 - [x] solidity & hardhat
 - [ ] c & c++ testing
 - [x] mixed c & c++ with go
 - [x] cargo test
 - [x] rust & rustc --test
-- [ ] P2: java tests by jar
 - [ ] gradle
-- [ ] P2: maven plain directory
 - [x] java & maven & junit
 - [ ] diagrams_bks
 - [x] diagrams
