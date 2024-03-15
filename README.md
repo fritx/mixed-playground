@@ -10,6 +10,11 @@ go tool cover -html=go_coverage.out  # serving html
 
 # Python
 pytest -v -s
+# w/ coverage
+pip install pytest-cov
+pytest --cov=.
+pytest --cov=. --cov-report html:py_coverage
+# html report is under `py_coverage` dir
 
 # Rust
 rustc hello_world.rs -o hello_world_exe
@@ -52,6 +57,7 @@ Roadmap:
 - [x] go test
 
 Refs:
+- https://pytest-cov.readthedocs.io/en/latest/reporting.html
 - https://github.com/golang/vscode-go/blob/master/docs/features.md#code-coverage
 - https://brantou.github.io/2017/05/24/go-cover-story/
 - https://junit.org/junit5/docs/current/user-guide/#running-tests-build
