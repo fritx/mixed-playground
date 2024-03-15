@@ -39,11 +39,12 @@ java -jar target/playground-1.0-SNAPSHOT.jar
 
 # Solidity
 npm install  # or pnpm install
-npx hardhat test
+REPORT_GAS=true npx hardhat test
+npx hardhat coverage
 ```
 
 Roadmap:
-- [ ] coverage & benchmarks
+- [ ] benchmarks
 - [ ] bigdata & spark & hadoop
 - [x] solidity & hardhat
 - [ ] c & c++ testing
