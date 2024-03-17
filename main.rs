@@ -4,6 +4,7 @@ mod graphs;
 mod hello_module;
 mod strings;
 mod trees;
+mod utils;
 use hello_module::hello;
 
 fn main() {
