@@ -3,7 +3,6 @@
         "editorconfig.editorconfig",
         "ms-toolsai.jupyter",
         "ms-python.python",
-        // "ms-python.black-formatter",
         "golang.go",
         // "redhat.java",
         "vscjava.vscode-java-pack",
@@ -12,5 +11,8 @@
         "stephanvs.dot",
         "maratib.hardhat-developer-pack",
         "esbenp.prettier-vscode",
-    ]
+    ],
+    "unwantedRecommendations": [
+        "ms-python.black-formatter",
+    ],
 }

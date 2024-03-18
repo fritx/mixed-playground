@@ -11,21 +11,24 @@ py_coverage
 *.class
 
 # Maven
-/target/classes
-/target/test-classes
-/target/generated-sources
-/target/generated-test-sources
-/target/maven-status
-/target/surefire-reports
+/target
+# /target/classes
+# /target/test-classes
+# /target/generated-sources
+# /target/generated-test-sources
+# /target/maven-status
+# /target/surefire-reports
 
 # Rust
 *_exe
 *_exe.*
 
 # Cargo
-/target/debug
-/target/release
-/target/.rustc_info.json
+/target
+# /target/debug
+# /target/release
+# /target/.rustc_info.json
+# /target/CACHEDIR.TAG
 *.profraw
 *.profdata
 

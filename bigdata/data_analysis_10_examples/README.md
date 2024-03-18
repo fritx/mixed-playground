@@ -11,7 +11,7 @@ jupyter notebook
 
 TODO:
 - [ ] python virtual environment
-- [ ] 10 Examples
+- [x] 10 Examples
 
 Refs:
 - https://janakiev.com/blog/jupyter-virtual-envs/
