@@ -1,4 +1,5 @@
 #![allow(dead_code)]
+mod data_structures;
 mod dp;
 mod graphs;
 mod hello_module;
