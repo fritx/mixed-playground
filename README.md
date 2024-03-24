@@ -46,6 +46,7 @@ npx hardhat coverage
 Roadmap:
 - [ ] benchmarks
 - [ ] bigdata & spark & hadoop
+- [ ] [lang cheatsheet](./lang_cheatsheet.md)
 - [x] solidity & hardhat
 - [ ] c & c++ testing
 - [x] mixed c & c++ with go
@@ -54,13 +55,14 @@ Roadmap:
 - [ ] gradle
 - [x] java & maven & junit
 - [ ] diagrams_bks
-- [x] diagrams
+- [x] [diagrams](./diagrams/)
 - [ ] P2: python -m unittest discover -v
 - [x] hacking cjk filenames & sub-directories & cwd
 - [x] pytest
 - [x] go test
 
 Refs:
+- https://github.com/NomicFoundation/hardhat/pull/4961
 - https://doc.rust-lang.org/rustc/instrument-coverage.html
 - https://pytest-cov.readthedocs.io/en/latest/reporting.html
 - https://github.com/golang/vscode-go/blob/master/docs/features.md#code-coverage

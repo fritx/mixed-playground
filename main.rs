@@ -4,6 +4,7 @@ mod dp;
 mod graphs;
 mod hello_module;
 mod math_ops;
+mod pq;
 mod strings;
 mod trees;
 mod utils;
