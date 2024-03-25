@@ -15,26 +15,26 @@ Infinity / MaxValue:
 
 Static Arrays:
 
-| Lang  | Array | copy | free |
-| -- | -- | -- | -- |
-| JS    | a = new Array(3) | - | - |
-| Python| a = list() | - | - |
-| Go    | var a [3]int = [3]int{} | copy(newArray, fixedArray) | - |
-| Java  | int[] a = new int[3] | int[] newArray = new int[fixedArray.length * 2];<br>System.arraycopy(fixedArray, 0, newArray, 0, fixedArray.length); | - |
-| C++   | int a[3]; | std::copy(std::begin(fixedArray), std::end(fixedArray), std::begin(newArray)) | delete[] a |
-| C   | ↑ | - | free a |
+| Lang  | Array | fill | copy | free |
+| -- | -- | -- | -- | -- |
+| JS    | a = new Array(3) | a.fill(0) | - | - |
+| Python| a = list() | a = [0] * n | - | - |
+| Go    | var a [3]int = [3]int{} | - | copy(newArray, fixedArray) | - |
+| Java  | int[] a = new int[3] - | Arrays.fill(a, 0) | int[] newArray = new int[fixedArray.length * 2];<br>System.arraycopy(fixedArray, 0, newArray, 0, fixedArray.length); | - |
+| C++   | int a[3]; | std::fill(std::begin(arr), std::end(arr), 0) / std::fill(arr, arr + 10, 0) | std::copy(std::begin(fixedArray), std::end(fixedArray), std::begin(newArray)) | delete[] a |
+| C   | ↑ | memset(a, 0, sizeof(a)) | - | free a |
 
 Dynamic Arrays / Slices:
 
-| Lang  | Slice | push |
-| -- | -- | -- |
-| JS    | 同Array | a.push(x) |
-| Python| 同Array | a.append(x) |
-| Go    | var a []int = []int{} | a = append(a, x) |
-| Rust  | let a: Vec\<i32\> = vec![0; n] / Vec::new() | a.push(x) |
-| Java  | List\<Integer\> a = new ArrayList\<Integer\>() / List\<String\> a = Arrays.asList("a", "b", "c") | a.add(x) |
-| C++   | std::vector\<int\> a = {1, 2, 3} | a.push_back(x) |
-| C     | char *list[] = {"a", "b", "c"} / int \*a = NULL; int size = 0; capacity = n; a = (int \*)malloc(capacity \* sizeof(int)); if (dynamicArray == NULL) return 1; | a[size++] = x |
+| Lang  | Slice | fill | push |
+| -- | -- | -- | -- |
+| JS    | 同Array | ← | a.push(x) |
+| Python| 同Array | ← | a.append(x) |
+| Go    | var a []int = []int{} | - | a = append(a, x) |
+| Rust  | let a: Vec\<i32\> = vec![0; n] / Vec::new() | let vec: Vec\<i32\> = std::iter::repeat(0).take(10).collect() | a.push(x) |
+| Java  | List\<Integer\> a = new ArrayList\<Integer\>() / List\<String\> a = Arrays.asList("a", "b", "c") | List\<Integer\> list = IntStream.range(0, 10).mapToObj(i -> 0).collect(Collectors.toList()) / List\<Integer\> list = Collections.nCopies(10, 0) | a.add(x) |
+| C++   | std::vector\<int\> a = {1, 2, 3} | std::vector\<int\> vec(10, 0); / std::fill(vec.begin(), vec.end(), 0) | a.push_back(x) |
+| C     | char *list[] = {"a", "b", "c"} / int \*a = NULL; int size = 0; capacity = n; a = (int \*)malloc(capacity \* sizeof(int)); if (dynamicArray == NULL) return 1; |  |a[size++] = x |
 
 Slices Realloc:
 
