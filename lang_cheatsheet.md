@@ -87,6 +87,30 @@ Infinity / MaxValue:
 
 ## Misc
 
+Sort:
+
+| Lang  | Sort |
+| -- | -- |
+| JS    | intervals.sort((a, b) => a[0] - b[0]) |
+| Python| intervals.sort(key=lambda x: x[0]) |
+| Go    | sort.Slice(ranges, func(i, j int) bool { return ranges[i][0] < ranges[j][0] }) |
+| Rust  | ranges.sort_by(\|a, b\| a[0].cmp(&b[0])) |
+| Java  | Arrays.sort(ranges, (a, b) -> a[0] - b[0]) / Arrays.sort(intervals, new Comparator<int[]>() { public int compare(int[] interval1, int[] interval2) { return interval1[0] - interval2[0]; } }); |
+| C++   | sort(ranges.begin(), ranges.end()) |
+| C     | int cmp(const void \*a, const void \*b) { return (\*(int \*\*)a)[0] - (\*(int \*\*)b)[0]; } qsort(ranges, rangesSize, sizeof(int \*), cmp) |
+
+Const & Scientific notation:
+
+| Lang  | Const |
+| -- | -- |
+| JS    | const MOD = 10**9 + 7 |
+| Python| - / MOD = 10**9 + 7 |
+| Go    | const mod = int(1e9 + 7) |
+| Rust  | const MOD: i64 = 1_000_000_007 |
+| Java  | static final int MOD = 1000000007 |
+| C++   | static constexpr int mod = 1e9 + 7 |
+| C     | const int mod = 1e9 + 7 |
+
 For Loop:
 
 | Lang  | For i | For item | For i, item |
