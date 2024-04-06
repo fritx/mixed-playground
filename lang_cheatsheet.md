@@ -59,6 +59,30 @@ Heaps or Priority Queues:
 | C++   | using pii = pair<int, int>; priority_queue<pii, vector\<pii\>, greater\<pii\>> pq; pq.emplace(0, node1); !pq.empty(); auto [cost, cur] = pq.top(); pq.pop(); pq.emplace(cost + ncost, next); |
 | C     | typedef struct { Node \*arr; int capacity; int queueSize; cmp compare; } PriorityQueue; ... |
 
+Stacks:
+
+| Lang  | Stack |
+| -- | -- |
+| JS    | 通过Array |
+| Python| 通过List |
+| Go    | 通过Slice |
+| Rust  | 通过Vec |
+| Java  | Deque\<Integer\> stack = new LinkedList\<Integer\>(); stack.push(1); !stack.isEmpty(); stack.peek(); stack.pop(); / ArrayDeque |
+| C++   | stack\<int\> stk; stk.push(1); !stk.empty(); stk.top(); stk.pop() |
+| C     | int stk[n], top = 0; stk[top++] = 1; !top; top--; |
+
+Deques & StringBuilders:
+
+| Lang  | Deques & StringBuilders |
+| -- | -- |
+| JS    | a.unshift(x); a.push(x); q.reverse().join(''); |
+| Python| q = Deque(), q.appendleft, q.append, q.popleft, q.pop<br>ans = "".join(q)<br>if head: ans = ans[::-1] |
+| Go    | if head { q = append([]rune{ch}, q...) } else { q = append(q, ch) } if head { reverse(q) } return string(q) |
+| Rust  | let mut q = Vec::\<char\>::new(); if head { q.insert(x); } else { q.push(x); } let ans: String = q.iter().rev().collect() |
+| Java  | q.addFirst/Last(x); offer~; get~; peek~; remove~; poll~; StringBuilder ans = new StringBuilder(); while (!q.isEmpty()) ans.append(q.pollLast()); |
+| C++   | deque\<char\> q; q.push_front(ch); q.push_back(ch); string ans = (head ? string{q.rbegin(), q.rend()} : string{q.begin(), q.end()}); |
+| C     | char q1[len], q2[len]; int pos1 = 0, pos2 = 0; if (head) { q1[pos1++] = ch; } else { ... } char *ans = (char \*)malloc(sizeof(char) \* (len + 1)); int pos = 0; if (head) { for (int i = pos2 - 1; i >= 0; i--) ans[pos++] = q2[i]; memcpy(ans + pos, q1, sizeof(char) \* pos1); } else { ... } ans[pos1 + pos2] = '\0'; |
+
 ## Math
 
 Min / Max:
@@ -95,7 +119,7 @@ Sort:
 | Python| intervals.sort(key=lambda x: x[0]) |
 | Go    | sort.Slice(ranges, func(i, j int) bool { return ranges[i][0] < ranges[j][0] }) |
 | Rust  | ranges.sort_by(\|a, b\| a[0].cmp(&b[0])) |
-| Java  | Arrays.sort(ranges, (a, b) -> a[0] - b[0]) / Arrays.sort(intervals, new Comparator<int[]>() { public int compare(int[] interval1, int[] interval2) { return interval1[0] - interval2[0]; } }); |
+| Java  | Collections.sort / Arrays.sort(ranges, (a, b) -> a[0] - b[0]) / Arrays.sort(intervals, new Comparator<int[]>() { public int compare(int[] interval1, int[] interval2) { return interval1[0] - interval2[0]; } }); |
 | C++   | sort(ranges.begin(), ranges.end()) |
 | C     | int cmp(const void \*a, const void \*b) { return (\*(int \*\*)a)[0] - (\*(int \*\*)b)[0]; } qsort(ranges, rangesSize, sizeof(int \*), cmp) |
 
