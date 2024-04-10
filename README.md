@@ -40,13 +40,15 @@ java -jar target/playground-1.0-SNAPSHOT.jar
 # Solidity
 npm install  # or pnpm install
 REPORT_GAS=true npx hardhat test
-npx hardhat coverage
+# `SOLIDITY_COVERAGE=true` is required to fix for viem
+SOLIDITY_COVERAGE=true npx hardhat coverage
 ```
 
 Roadmap:
 - [ ] benchmarks
 - [ ] bigdata & spark & hadoop
 - [ ] [lang cheatsheet](./lang_cheatsheet.md)
+- [x] fix coverage for viem
 - [x] solidity & hardhat
 - [ ] c & c++ testing
 - [x] mixed c & c++ with go

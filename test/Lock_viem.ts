@@ -1,5 +1,3 @@
-// Quick Start - hardhat.org
-// https://hardhat.org/hardhat-runner/docs/getting-started#quick-start
 import {
   time,
   loadFixture,
@@ -8,7 +6,10 @@ import { expect } from "chai";
 import hre from "hardhat";
 import { getAddress, parseGwei } from "viem";
 
-describe.skip("Lock (viem-test) not passing w/ coverage", function () {
+// Run gas report and coverage in e2e #4961
+// https://github.com/NomicFoundation/hardhat/pull/4961
+// describe.skip("Lock (viem)", function () {
+describe("Lock (viem)", function () {
   // We define a fixture to reuse the same setup in every test.
   // We use loadFixture to run this setup once, snapshot that state,
   // and reset Hardhat Network to that snapshot in every test.
