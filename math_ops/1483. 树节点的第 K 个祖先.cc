@@ -1,4 +1,4 @@
-// go:build ignore
+//go:build ignore
 
 // 1483. 树节点的第 K 个祖先
 // https://leetcode.cn/problems/kth-ancestor-of-a-tree-node/

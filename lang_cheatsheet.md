@@ -83,6 +83,19 @@ Deques & StringBuilders:
 | C++   | deque\<char\> q; q.push_front(ch); q.push_back(ch); string ans = (head ? string{q.rbegin(), q.rend()} : string{q.begin(), q.end()}); |
 | C     | char q1[len], q2[len]; int pos1 = 0, pos2 = 0; if (head) { q1[pos1++] = ch; } else { ... } char *ans = (char \*)malloc(sizeof(char) \* (len + 1)); int pos = 0; if (head) { for (int i = pos2 - 1; i >= 0; i--) ans[pos++] = q2[i]; memcpy(ans + pos, q1, sizeof(char) \* pos1); } else { ... } ans[pos1 + pos2] = '\0'; |
 
+Linked List:
+
+| Lang  | Deques & StringBuilders |
+| -- | -- |
+| Go | import 'containers/list' / list.List / e := l.Next(); e != nil / type entry struct{Key, Value} / et := e.Value.(entry) / e.Value =... / l.PushBack(entry{key, value}) / l.Remove(e) |
+| Java | import java.util.LinkedList / LinkedList<X>/ Iterator<X> it = data[h].iterator(); / while (it.hasNext()) { X x = it.next() } / l.offerLast / l.remove(x) |
+| C++ | list<pair<int, int>>; / for (auto it = data[h].begin(); it != data[h].end(); it++) / (*it).first / (*it).second =... / l.psuh_back(make_pair(key, value)) / l.erase(it) |
+| C | struct List { int key; int val; struct List* next; }; ... |
+
+Refs:
+- 706. 设计哈希映射 https://leetcode.cn/problems/design-hashmap/solutions/
+- 705. 设计哈希集合 https://leetcode.cn/problems/design-hashset/solutions/
+
 ## Math
 
 Min / Max:
@@ -132,7 +145,7 @@ Const & Scientific notation:
 | Go    | const mod = int(1e9 + 7) |
 | Rust  | const MOD: i64 = 1_000_000_007 |
 | Java  | static final int MOD = 1000000007 |
-| C++   | static constexpr int mod = 1e9 + 7 |
+| C++   | static constexpr int mod = 1e9 + 7 / static const int base = 769 |
 | C     | const int mod = 1e9 + 7 |
 
 For Loop:
