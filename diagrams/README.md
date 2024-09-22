@@ -19,6 +19,8 @@ Roadmap:
 - [x] mingrammer/diagrams
 
 Refs:
+- https://mermaid.js.org/syntax/block.html
+- [Block Diagram: https://mermaid.live/edit#...](https://mermaid.live/edit#pako:eNp1UctqwzAQ_BWxuSRgH1qXHkQxtPG1p94a9SBLm1hYDyPLpCHk37t-QVronnZ2RqMd9goqaAQOtQ2qzWtMUnhGpYIdnO9ZMUMdVCmgCmpw6JOAL74QfScVEn32Dy8HAYyocjvC3UwJP-omd47ro7ks6S0eR7f7sdsKeGVno5EFj8x4lhpkzmhtUcDuXhrJIZpTs1qg13-3evxnqylUfaC_qjdy_Z1nBdVitF_1LM9LVs1oPwFdr9IRLcI-XSytzI7GWr7RzzrrUwwt8k1RFEufU8LU8Kfue34DGTiMThpN17iOMwEU3FFmTq2WsRUg_I10ckjh4-IV8BQHzGDotExYGXmK0q1D1CaF-D5fdzpyBp30nyEsktsPcbGZGA)
 - https://graphviz.org/doc/info/command.html
 - Node Attributes https://graphviz.org/docs/nodes/
 - https://diagrams.mingrammer.com/docs/getting-started/examples

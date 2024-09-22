@@ -122,6 +122,28 @@ Infinity / MaxValue:
 | C++   | std::numeric_limits\<double\>::infinity() / std::numeric_limits\<float\>::infinity() | INT_MAX | FLT_MAX / DBL_MAX |
 | C     | - | ↑ | ↑ |
 
+## Control
+
+io.read / write:
+
+| Lang  | io.read / write |
+| -- | -- | -- |
+| Node.js | rl = readline.createInterface({ input, output }); rl.question('What do you think of Node.js? ', (answer) => {}); rl.close();
+| Go    | fmt.Print("What do you want to do? ") / fmt.Scanln(&choice) |
+| Shell | echo ... / read -p 'What do you want to do? ' choice |
+}); |
+
+switch case:
+
+| Lang  | switch case |
+| -- | -- | -- |
+| Shell | case "$choice" in / '1') ... ;; |
+| Go    | switch choice { / case "1": ... default: |
+
+Refs:
+- https://github.com/naltun/eyes.sh/blob/master/eyes.sh
+- https://github.com/naltun/eyes/blob/master/main.go
+
 ## Misc
 
 Sort:

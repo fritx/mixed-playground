@@ -58,3 +58,7 @@
 .bks-start>div:nth-child(6) {
     background-color: rgba(127, 0, 0, .05);
 }
+
+main {
+    margin: 30px;
+}
