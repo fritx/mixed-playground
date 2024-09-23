@@ -1,5 +1,6 @@
 package me.fritx.dp;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -9,7 +10,7 @@ import org.junit.jupiter.params.provider.ArgumentsSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.io.IOException;
+// import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -43,37 +44,38 @@ public class SellingWood_2312_objectmapper_Tests {
                     [7, 7, [], 0],
                     [0, 0, [[1, 2, 3]], 0],
                     [0, 0, [], 0]
-                    ]
+                ]
                 """;
 
         @Override
-        public Stream<? extends Arguments> provideArguments(ExtensionContext context) {
+        public Stream<? extends Arguments> provideArguments(ExtensionContext context) throws JsonProcessingException {
             ObjectMapper mapper = new ObjectMapper();
-            try {
+            // try {
+            @SuppressWarnings("unchecked")
+            List<List<Object>> testCases = mapper.readValue(JSON, List.class);
+
+            return testCases.stream().map(testCase -> {
+                int m = (int) testCase.get(0);
+                int n = (int) testCase.get(1);
+
+                // int[][] prices = Arrays.stream((List<List<Integer>>) testCase.get(2))
+                // .map(list -> list.toArray(new Integer[0]))
+                // .toArray(int[][]::new);
                 @SuppressWarnings("unchecked")
-                List<List<Object>> testCases = mapper.readValue(JSON, List.class);
-                return testCases.stream().map(testCase -> {
-                    int m = (int) testCase.get(0);
-                    int n = (int) testCase.get(1);
+                List<List<Integer>> nestedLists = (List<List<Integer>>) testCase.get(2);
+                // 将 List<List<Integer>> 转换为 List<int[]>
+                List<int[]> intermediateList = nestedLists.stream()
+                        .map(list -> list.stream().mapToInt(Integer::intValue).toArray())
+                        .collect(Collectors.toList());
+                // 将 List<int[]> 转换为 int[][]
+                int[][] prices = intermediateList.toArray(int[][]::new);
 
-                    // int[][] prices = Arrays.stream((List<List<Integer>>) testCase.get(2))
-                    // .map(list -> list.toArray(new Integer[0]))
-                    // .toArray(int[][]::new);
-                    @SuppressWarnings("unchecked")
-                    List<List<Integer>> nestedLists = (List<List<Integer>>) testCase.get(2);
-                    // 将 List<List<Integer>> 转换为 List<int[]>
-                    List<int[]> intermediateList = nestedLists.stream()
-                            .map(list -> list.stream().mapToInt(Integer::intValue).toArray())
-                            .collect(Collectors.toList());
-                    // 将 List<int[]> 转换为 int[][]
-                    int[][] prices = intermediateList.toArray(int[][]::new);
-
-                    int want = (int) testCase.get(3);
-                    return Arguments.of(m, n, prices, want);
-                });
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+                int want = (int) testCase.get(3);
+                return Arguments.of(m, n, prices, want);
+            });
+            // } catch (IOException e) {
+            // throw new RuntimeException(e);
+            // }
         }
     }
 }

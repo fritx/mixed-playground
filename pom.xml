@@ -50,9 +50,9 @@
         </dependencies>
         <configuration>
           <reportFormat>plain</reportFormat>
-          <consoleOutputReporter>
+          <!-- <consoleOutputReporter>
             <disable>true</disable>
-          </consoleOutputReporter>
+          </consoleOutputReporter> -->
           <statelessTestsetInfoReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5StatelessTestsetInfoTreeReporter"/>
         </configuration>
       </plugin>
